@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+$primary: #0078d4;
+
+body {
+  margin: 0px 0px 0px 0px;
+}
+
+header {
+  background-color: $primary;
+  padding: 1em;
+
+  a {
+    color: white;
+    text-decoration-line: none;
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  nav {
+    float: right;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+
+      li a {
+        padding: 1em;
+        &:hover {
+          background: darken($color: $primary, $amount: 20%);
+        }
+      }
+    }
+  }
+}

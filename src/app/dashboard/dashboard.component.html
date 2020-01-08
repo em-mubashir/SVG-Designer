@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row h-100">
+        <div class="col-md-2 col-sm-12 text-center">
+            <nav class="navbar bg-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#svgtoggle">SVGs Library</a>
+                        <ul id="svgtoggle" class="collapse navbar-nav">
+                            <button class="nav-link btn btn-sm btn-outline-light text-dark" (click)="factory()">
+                                Factory
+                            </button>
+                            <button class="nav-link btn btn-sm btn-outline-light text-dark" (click)="circle()">
+                                Circle
+                            </button>
+                            <button class="nav-link btn btn-sm btn-outline-light text-dark" (click)="rectangle()">
+                                Rectangle
+                            </button>
+                        </ul>
+                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#imagesToggle">Images
+                            Library</a>
+                        <ul id="imagesToggle" class="collapse navbar-nav">
+                            <button class="nav-link btn btn-sm btn-outline-light text-dark">
+                                Image 01
+                            </button>
+                            <button class="nav-link btn btn-sm btn-outline-light text-dark">
+                                Image 02
+                            </button>
+                        </ul>
+
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-7 col-sm-12">
+
+            <div class="resize-container" appDesignCanvas #designCanvas>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12 properties text-center">
+            <button class="btn btn-small btn-danger text-center" (click)="reset()">Reset</button>
+            <table class="table table-bordered" #propertyTable>
+                <thead>
+                    <th>Property</th>
+                    <th>Value</th>
+                </thead>
+                
+            </table>
+        </div>
+    </div>
+</div>
