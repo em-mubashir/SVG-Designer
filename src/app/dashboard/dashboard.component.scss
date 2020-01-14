@@ -10,6 +10,17 @@ ul {
 .resize-container {
   width: 100%;
   height: 600px;
+  background-color: white;
   padding: 5px;
 
+}
+path {
+  cursor: pointer;
+  fill: grey
+}
+.selected {
+  fill: #002868;
+  stroke: #339999;
+  stroke-width: 2px;
+  stroke-linejoin: round;;
 }
