@@ -9,14 +9,58 @@ import interact from 'interactjs';
 
 export class DashboardComponent implements OnInit {
 
-  svgId: any = 0;
-  pathId: any = 0;
+  file: any;
+  fileChanged(e) {
+    this.file = e.target.files[0];
+  }
 
-  constructor(private renderer: Renderer2, private elRef: ElementRef) {
 
+  uploadDocument(file) {
+    let fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      // console.log(fileReader.result);
+      let svgText = fileReader.result.toString();
+      // document.getElementById('svgUploaded').innerHTML = svgText;
+      this.extractSvg(svgText);
+    }
+    fileReader.readAsText(this.file);
+  }
+
+  extractSvg(text: string) {
+
+    let svgStartIndex = text.indexOf('<svg');
+
+
+    let newText = text.slice(svgStartIndex, svgStartIndex + 5) + 'id="' + this.svgId + '" ' + text.slice(svgStartIndex + 5);
+    svgStartIndex = newText.indexOf('<svg');
+    let newText1 = newText.slice(svgStartIndex, svgStartIndex + 5) + 'class="resize-drag" ' + newText.slice(svgStartIndex + 5);
+
+    alert(newText1);
+    console.log(newText1);
+    document.getElementById('designCanvas').innerHTML = newText1;
+
+    // this.renderer.appendChild(this.designCanvas.nativeElement, newText);
+    this.getAllAttributes(this.svgId);
+    this.selectedId = this.svgId;
+    let svg = document.getElementById(this.svgId);
+    this.renderer.listen(svg, 'dblclick', (event) => {
+
+      this.resetPropertyTable();
+      this.displayProperties(this.getAllAttributes(svg.getAttribute('id')));
+
+      this.selectedId = svg.getAttribute('id');
+
+    });
+
+    this.svgId++;
 
 
   }
+
+  svgId: any = 0;
+  pathId: any = 0;
+
+  constructor(private renderer: Renderer2, private elRef: ElementRef) { }
 
   @ViewChild('designCanvas', { static: false }) designCanvas: ElementRef;
   @ViewChild('propertyTable', { static: false }) propertyTable: ElementRef;
@@ -505,10 +549,10 @@ export class DashboardComponent implements OnInit {
 
     for (let i = 0, atts = el.attributes, n = atts.length; i < n; i++) {
 
-      if (i != 0) {
+      // if (i != 0) {
         arr.push(atts[i].nodeName);
         arr.push(atts[i].nodeValue);
-      }
+      //}
     }
 
     let children = el.children;
@@ -534,10 +578,10 @@ export class DashboardComponent implements OnInit {
       // end
 
       for (let k = 0, atts = childNode.attributes; k < atts.length; k++) {
-        if (k != 0) {
+        // if (k != 0) {
           arr.push(atts[k].nodeName);
           arr.push(atts[k].nodeValue);
-        }
+        // }
       }
 
     }

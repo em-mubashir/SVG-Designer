@@ -24,21 +24,27 @@
                             </button>
                         </ul>
 
+
                     </li>
                 </ul>
             </nav>
         </div>
         <div class="col-md-7 col-sm-12">
 
-            <div class="resize-container" appDesignCanvas #designCanvas>
+            <div class="resize-container" id="designCanvas" appDesignCanvas #designCanvas>
 
 
-               
+
 
 
             </div>
         </div>
         <div class="col-md-3 col-sm-12 properties text-center">
+            <div>
+                <input type='file' (change)="fileChanged($event)">
+                <button type="button" class="btn btn-primary" (click)="uploadDocument()">Upload
+                    File</button>
+            </div>
             <button class="btn btn-small btn-danger text-center" (click)="reset()">Reset</button>
             <table class="table table-bordered" #propertyTable>
                 <thead>
@@ -52,6 +58,8 @@
     <div class="row">
         <div class="col-md-12 col-sm-12">
 
+
+            <div id="svgUploaded"></div>
 
         </div>
     </div>
