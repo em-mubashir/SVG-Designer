@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "angular-file-uploader": "^5.0.2",
+    "form-data": "^3.0.0",
     "interactjs": "^1.8.0-rc.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
