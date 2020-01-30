@@ -1,0 +1,78 @@
+<!-- <div class="wrapper fadeInDown">
+    <div id="formContent">
+      
+  
+      <div class="fadeIn first">
+        <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+      </div>
+  
+   
+      <form>
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+  
+       Remind Passowrd 
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>
+  </div> -->
+
+  <div id="login">
+    <h3 class="text-center text-white pt-5">Login form</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" action="" method="post" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" >
+                        <h3 class="text-center text-info">Login</h3>
+                        <div class="form-group">
+                            <label for="username" class="text-info">Username:</label><br>
+                            <input type="text" name="username" id="username" class="form-control" formControlName="email"
+                            required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password:</label><br>
+                            <input type="password" name="password" id="password" class="form-control" formControlName="password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-primary btn-md" value="submit">
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4 col-sm-12 fadeIn first">
+
+        <div class="wrapper fadeInDown">
+            <div id="formContent">
+
+                <h2>Login here!</h2>
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+
+                    <input id="login" type="email" class="form-control fadeIn second" placeholder="Email" formControlName="email"
+                        required>
+                    <input id="password" type="password"  class="form-control fadeIn third" placeholder="Password"
+                        formControlName="password" required>
+                    <button class="fadeIn fourth" type="submit">Login</button>
+
+                </form>
+
+            </div>
+        </div>  
+    </div>
+
+    <div class="col-md-4"></div>
+</div>
+-->

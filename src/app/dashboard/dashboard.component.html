@@ -1,28 +1,51 @@
 <div class="container-fluid">
     <div class="row h-100">
-        <div class="col-md-2 col-sm-12 text-center">
+        <div class="col-md-2 col-sm-12" style="width: 100%; height: 600px; border-right: 1px solid black;">
+
+            <span class="btn btn-sm btn-success" data-toggle="collapse" style="width:100%;"
+                data-target="#screenstoggle">Screens</span>
+
+            <div id="screenstoggle" class="collapse">
+
+            </div>
+
+
+            <span class="btn btn-sm btn-success" data-toggle="collapse" style="width:100%;"
+                data-target="#demo1">Shapes</span>
+
+            <div id="demo1" class="collapse">
+                <a (click)="rectangle()">
+                    <img src="../assets/rectangle.jpg" style="width:60px;height:60px" />
+                </a>
+                <a (click)="square()">
+                    <img src="../assets/square.jpg" style="dsiplay:inline; width:60px;height:60px" />
+                </a>
+                <a (click)="circle()">
+                    <img src="../assets/circle.jpg" style="dsiplay:inline; width:60px;height:60px" />
+                </a>
+                <a (click)="line()">
+                    <img src="../assets/line.jpg" style="width:60px;height:60px" />
+                </a>
+                <a (click)="text()">
+                    <img src="../assets/text.jpg" style="dsiplay:inline; width:60px;height:60px" />
+                </a>
+
+            </div>
+
+            <span class="btn btn-sm btn-success" data-toggle="collapse" style="width:100%;"
+                data-target="#svgsLibrary">SVGs Library</span>
+
+            <div id="svgsLibrary" class="collapse">
+
+            </div>
+
+
+
+
+
             <nav class="navbar bg-light">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" style="margin-left: -20px; width: 100%;">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#svgtoggle">SVGs Library</a>
-                        <ul id="svgtoggle" class="collapse navbar-nav">
-                            <button class="nav-link btn btn-sm btn-outline-light text-dark" (click)="factory()">
-                                Factory
-                            </button>
-                            <button class="nav-link btn btn-sm btn-outline-light text-dark" (click)="airConditioner1()">
-                                AirConditioner
-                            </button>
-                        </ul>
-                        <a class="nav-link" href="#" data-toggle="collapse" data-target="#imagesToggle">Images
-                            Library</a>
-                        <ul id="imagesToggle" class="collapse navbar-nav">
-                            <button class="nav-link btn btn-sm btn-outline-light text-dark">
-                                Image 01
-                            </button>
-                            <button class="nav-link btn btn-sm btn-outline-light text-dark">
-                                Image 02
-                            </button>
-                        </ul>
 
 
                     </li>
@@ -31,28 +54,55 @@
         </div>
         <div class="col-md-7 col-sm-12">
 
-            <div class="resize-container" id="designCanvas" appDesignCanvas #designCanvas>
-
-
-
-
-
+            <div class="resize-container" id="designCanvas" style="background-image: url('../assets/grid.png');"
+                appDesignCanvas #designCanvas>
             </div>
         </div>
-        <div class="col-md-3 col-sm-12 properties text-center">
-            <div>
-                <input type='file' (change)="fileChanged($event)">
-                <button type="button" class="btn btn-primary" (click)="uploadDocument()">Upload
-                    File</button>
-            </div>
-            <button class="btn btn-small btn-danger text-center" (click)="reset()">Reset</button>
-            <table class="table table-bordered" #propertyTable>
-                <thead>
-                    <th>Property</th>
-                    <th>Value</th>
-                </thead>
+        <div class="col-md-3 col-sm-12 properties" style="height: 600px; border-left: 1px solid black;">
 
-            </table>
+            <div>
+                <input type='file' (change)="fileChanged($event)" />
+                <br />
+                <button type="button" class="btn btn-primary btn-sm" style="width: 100%;"
+                    (click)="uploadDocument()">Import</button>
+            </div>
+            <hr />
+            <div>
+
+                <input type='file' (change)="onSelectFile($event)" multiple>
+                <div *ngFor='let svg of svgs'>
+
+                    {{svg}}
+                </div>
+                <button class="btn btn-success btn-sm" style="width: 100%;" (click)="uploadDocumentToDatabase()">Save to
+                    Database</button>
+
+            </div>
+            <hr />
+            <button class="btn btn-sm btn-danger text-center" style="width: 100%;" (click)="reset()">Reset</button>
+            <br />
+            <hr />
+            <button class="btn btn-sm btn-primary text-center" style="width: 25%;" (click)="saveScreen()">Save
+                Screen</button>
+            <button class="btn btn-sm btn-primary text-center" style="width: 25%;" (click)="loadScreen()">Load
+                Screen</button>
+            <button class="btn btn-sm btn-danger text-center" style="width: 25%;" (click)="updateScreen()">Update
+                Screen</button>
+            <button class="btn btn-sm btn-danger text-center" style="width: 25%;" (click)="deleteScreen()">Delete
+                Screen</button>
+
+            <br />
+            <hr />
+            <div class="propertyTable">
+
+                <table class="" #propertyTable>
+                    <thead>
+                        <th>Property</th>
+                        <th>Value</th>
+                    </thead>
+
+                </table>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -60,6 +110,7 @@
 
 
             <div id="svgUploaded"></div>
+
 
         </div>
     </div>

@@ -1,5 +1,5 @@
-.property-table{
-  border: 1px solid black
+.property-table {
+  border: 1px solid black;
 }
 .property-table td {
   border-right: 1px solid black;
@@ -12,15 +12,49 @@ ul {
   height: 600px;
   background-color: white;
   padding: 5px;
-
 }
 path {
   cursor: pointer;
-  fill: grey
+  fill: grey;
 }
 .selected {
   fill: #002868;
   stroke: #339999;
   stroke-width: 2px;
-  stroke-linejoin: round;;
+  stroke-linejoin: round;
 }
+#designCanvas {
+  background-color: rgba(238, 238, 238, 0.81) !important;
+
+  background-blend-mode: color;
+  width: 100%;
+
+  background-size: 200px 200px;
+}
+#svgsLibrary {
+  overflow: scroll;
+  height: 500px;
+}
+.propertyTable {
+  overflow: scroll;
+  height: 300px;
+}
+table{
+  border:1px solid black;
+  width: 100%;  
+  text-align: center;
+  tr {
+    border: 1px solid black;
+    
+    td {
+
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+
+    }
+
+  }
+  
+}
+
+

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { stringify } from 'querystring';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-svg-import',
@@ -8,36 +8,27 @@ import { stringify } from 'querystring';
 })
 export class SvgImportComponent implements OnInit {
 
-  constructor() { }
+
+  postData = {
+
+    name: 'Factory',
+    content: '<svg ..........................> </svg>'
+
+  }
+
+  url = 'https://svgdesigntool.firebaseio.com/db.json';
+
+  constructor(private http: HttpClient) { 
+  
+  }
 
   ngOnInit() {
   }
 
-  file: any;
-  fileChanged(e) {
-    this.file = e.target.files[0];
-  }
-
-
-  uploadDocument(file) {
-    let fileReader = new FileReader();
-    fileReader.onload = (e) => {
-      // console.log(fileReader.result);
-      let svgText = fileReader.result.toString();
-      document.getElementById('svgUploaded').innerHTML = svgText;
-      this.extractSvg(svgText);
-    }
-    fileReader.readAsText(this.file);
-  }
-
-  extractSvg(text : string){
-
-    let svgStartIndex = text.indexOf('<svg');
-    
-    let newText = text.slice(svgStartIndex, svgStartIndex + 5) + 'id="randomId" ' + text.slice(svgStartIndex + 5); 
-    alert(newText); 
-    
+  testFunction(){
 
   }
+ 
+ 
 
 }
