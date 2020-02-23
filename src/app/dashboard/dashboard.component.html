@@ -1,5 +1,6 @@
+
 <div class="container-fluid">
-    <div class="row h-100">
+    <div class="row">
         <div class="col-md-2 col-sm-12" style="width: 100%; height: 600px; border-right: 1px solid black;">
 
             <span class="btn btn-sm btn-success" data-toggle="collapse" style="width:100%;"
@@ -18,16 +19,16 @@
                     <img src="../assets/rectangle.jpg" style="width:60px;height:60px" />
                 </a>
                 <a (click)="square()">
-                    <img src="../assets/square.jpg" style="dsiplay:inline; width:60px;height:60px" />
+                    <img src="../assets/square.jpg" style="display:inline;width:60px;height:60px" />
                 </a>
                 <a (click)="circle()">
-                    <img src="../assets/circle.jpg" style="dsiplay:inline; width:60px;height:60px" />
+                    <img src="../assets/circle.jpg" style="display:inline;width:60px;height:60px" />
                 </a>
                 <a (click)="line()">
                     <img src="../assets/line.jpg" style="width:60px;height:60px" />
                 </a>
-                <a (click)="text()">
-                    <img src="../assets/text.jpg" style="dsiplay:inline; width:60px;height:60px" />
+                <a (click)="label()">
+                    <img src="../assets/text.jpg" style="display:inline;width:60px;height:60px" />
                 </a>
 
             </div>
@@ -56,9 +57,11 @@
 
             <div class="resize-container" id="designCanvas" style="background-image: url('../assets/grid.png');"
                 appDesignCanvas #designCanvas>
-            </div>
+                
+
         </div>
-        <div class="col-md-3 col-sm-12 properties" style="height: 600px; border-left: 1px solid black;">
+        </div>
+        <div class="col-md-3 col-sm-12 properties" style="height: 600px; border-left: 1px solid black; background-color: white;">
 
             <div>
                 <input type='file' (change)="fileChanged($event)" />
@@ -95,7 +98,7 @@
             <hr />
             <div class="propertyTable">
 
-                <table class="" #propertyTable>
+                <table class="table-sm" style="font-size: 10pt; line-height: 1.5em;" #propertyTable>
                     <thead>
                         <th>Property</th>
                         <th>Value</th>
